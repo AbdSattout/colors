@@ -22,16 +22,24 @@ function deal(): Tube[] {
     [balls[i], balls[j]] = [balls[j]!, balls[i]!];
   }
 
-  const tubes = Array.from({ length: COLORS.length + 1 }, (_, tube) =>
-    balls.slice(tube * CAPACITY, (tube + 1) * CAPACITY),
-  );
+  // Every tube starts with at least one ball; distribute the rest randomly.
+  const heights = Array.from({ length: COLORS.length + 1 }, () => 1);
 
-  // The balls fill three tubes; move the free tube somewhere random.
-  const empty = Math.floor(Math.random() * tubes.length);
-  const last = tubes.length - 1;
-  [tubes[empty], tubes[last]] = [tubes[last]!, tubes[empty]!];
+  for (let placed = heights.length; placed < balls.length; placed++) {
+    const open = heights.flatMap((height, index) =>
+      height < CAPACITY ? [index] : [],
+    );
+    const tube = open[Math.floor(Math.random() * open.length)]!;
+    heights[tube] = heights[tube]! + 1;
+  }
 
-  return tubes;
+  let cursor = 0;
+
+  return heights.map((height) => {
+    const tube = balls.slice(cursor, cursor + height);
+    cursor += height;
+    return tube;
+  });
 }
 
 function isSolved(tubes: readonly Tube[]): boolean {
@@ -62,7 +70,7 @@ export class Game {
     this.moves = moves;
   }
 
-  /** A fresh deal: three mixed tubes and one empty tube. */
+  /** A fresh deal: three colors shuffled into four tubes with random heights. */
   static create(): Game {
     const state: GameState = { tubes: deal(), selected: null };
     return new Game(state.tubes, state.selected, [state], 0);

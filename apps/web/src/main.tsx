@@ -149,7 +149,7 @@ function App() {
         aria-label="Colors game"
       >
         <div className="intro">
-          <p className="eyebrow">four tubes · three colors · one empty</p>
+          <p className="eyebrow">four tubes · three colors · random heights</p>
           <p className="status" aria-live={replaying ? "off" : "polite"}>
             {status}
           </p>

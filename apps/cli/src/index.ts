@@ -69,7 +69,7 @@ function draw(game: Game, note?: string): void {
   console.clear();
   console.log("");
   console.log(
-    `  ${bold}colors${reset}  ${dim}four tubes · three colors · one empty${reset}`,
+    `  ${bold}colors${reset}  ${dim}four tubes · three colors · random heights${reset}`,
   );
   console.log("");
 

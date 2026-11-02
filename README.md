@@ -1,9 +1,9 @@
 # colors
 
-A tiny color-sorting game. Four tubes, three colors, one empty.
+A tiny color-sorting game. Four tubes, three colors, randomized starting heights.
 
-Pick a tube, then pick a tube with space. Fill three tubes with four matching
-balls and leave one tube empty.
+Pick a tube, then pick a tube with space. Tubes start with 1–4 balls each and
+you finish with three tubes full of matching colors.
 
 The whole thing is Bun: workspaces, `Bun.serve`, React, the bundler, `bun check`,
 `bun fmt`, and `for await (const line of console)`.
