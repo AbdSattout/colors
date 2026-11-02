@@ -1,0 +1,11 @@
+{
+  "name": "@colors/cli",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "bun src/index.ts"
+  },
+  "dependencies": {
+    "@colors/core": "workspace:*"
+  }
+}

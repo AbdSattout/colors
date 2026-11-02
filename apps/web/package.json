@@ -1,0 +1,19 @@
+{
+  "name": "@colors/web",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "bun --hot src/server.ts",
+    "start": "NODE_ENV=production bun src/server.ts",
+    "build": "bun build src/index.html --outdir=dist --target=browser --minify --define:process.env.NODE_ENV='\"production\"'"
+  },
+  "dependencies": {
+    "@colors/core": "workspace:*",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0"
+  }
+}

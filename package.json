@@ -1,0 +1,22 @@
+{
+  "name": "colors",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "bun --hot apps/web/src/server.ts",
+    "web": "bun --hot apps/web/src/server.ts",
+    "start": "NODE_ENV=production bun apps/web/src/server.ts",
+    "cli": "bun apps/cli/src/index.ts",
+    "build": "bun build apps/web/src/index.html --outdir=apps/web/dist --target=browser --minify --define:process.env.NODE_ENV='\"production\"'",
+    "typecheck": "bun check",
+    "fmt": "bun fmt",
+    "fmt:check": "bun fmt --check"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  }
+}
