@@ -1,5 +1,7 @@
 # colors
 
+Live at https://play-colors.vercel.app.
+
 A tiny color-sorting game. Four tubes, three colors, randomized starting heights.
 
 Pick a tube, then pick a tube with space. Tubes start with 1–4 balls each and
